@@ -73,6 +73,8 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
+    double _buttonWidthRatio = 0.45;
+    double _textboxnWidthRatio = 0.65;
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
@@ -102,75 +104,25 @@ class _MyHomePageState extends State<MyHomePage> {
           // center the children vertically; the main axis here is the vertical
           // axis because Columns are vertical (the cross axis would be
           // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
+          // mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
-              width: double.infinity,
-              height: 70,
-              color: Colors.grey[200],
-              child: Column(
-                children: <Widget>[
-                  Text('first line'),
-                  Text('second line'),
-                ],
-              ),
+              width: MediaQuery.of(context).size.width * 0.7,
+              child: Image.asset('images/logo_transparent.png'),
             ),
             Container(
-              width: double.infinity,
-              height: 70,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text('***'),
-                  Text('中央寄せ'),
-                ],
-              ),
-            ),
+                width: MediaQuery.of(context).size.width * _textboxnWidthRatio,
+                child: TextField()),
             Container(
-              width: double.infinity,
-              height: 70,
-              color: Colors.grey[200],
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  Text('***'),
-                  Text('下寄せ'),
-                ],
-              ),
-            ),
-            Container(
-              width: double.infinity,
-              height: 70,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  Text('***'),
-                  Text('***'),
-                  Text('均等に配置'),
-                ],
-              ),
-            ),
-            Container(
-              width: double.infinity,
-              height: 70,
-              color: Colors.grey[200],
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text('***'),
-                  Text('左寄せ'),
-                ],
-              ),
-            ),
-            Container(
-              width: double.infinity,
-              height: 70,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: <Widget>[
-                  Text('***'),
-                  Text('右寄せ'),
-                ],
+              // Set the ratio to the screen size
+              width: MediaQuery.of(context).size.width * _buttonWidthRatio,
+              // リスト追加ボタン
+              child: ElevatedButton(
+                onPressed: () {},
+                child: Text('検索', style: TextStyle(color: Colors.black)),
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.grey[200],
+                ),
               ),
             ),
           ],
