@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(Foods());
 }
 
-class MyApp extends StatelessWidget {
+class Foods extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      // 右上に表示される"debug"ラベルを消す
+      debugShowCheckedModeBanner: false,
+      title: 'Foods app',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -26,7 +28,7 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Foods'),
     );
   }
 }
@@ -75,7 +77,11 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title, textAlign: TextAlign.left),
+        title: Text(
+          widget.title,
+          textAlign: TextAlign.left,
+          style: TextStyle(color: Colors.white),
+        ),
         elevation: 0, // shadow off under the app bar.
       ),
       body: Center(
@@ -98,21 +104,78 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'You have clicked the button this many times:',
+            Container(
+              width: double.infinity,
+              height: 70,
+              color: Colors.grey[200],
+              child: Column(
+                children: <Widget>[
+                  Text('first line'),
+                  Text('second line'),
+                ],
+              ),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+            Container(
+              width: double.infinity,
+              height: 70,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text('***'),
+                  Text('中央寄せ'),
+                ],
+              ),
+            ),
+            Container(
+              width: double.infinity,
+              height: 70,
+              color: Colors.grey[200],
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  Text('***'),
+                  Text('下寄せ'),
+                ],
+              ),
+            ),
+            Container(
+              width: double.infinity,
+              height: 70,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Text('***'),
+                  Text('***'),
+                  Text('均等に配置'),
+                ],
+              ),
+            ),
+            Container(
+              width: double.infinity,
+              height: 70,
+              color: Colors.grey[200],
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text('***'),
+                  Text('左寄せ'),
+                ],
+              ),
+            ),
+            Container(
+              width: double.infinity,
+              height: 70,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: <Widget>[
+                  Text('***'),
+                  Text('右寄せ'),
+                ],
+              ),
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
